@@ -66,14 +66,17 @@
 </div>
 
 
-<div class="row mt-3">
+<!-- <div class="row mt-3">
     @for (course of courses; track $index) {
         <div class="col-lg-4">
-            <app-courses [course]="course" ></app-courses>
+            <app-courses [course]="course" [isDelete]="true" (del)="deleteCourse($event)" ></app-courses>
         </div>
     }@empty {
         <div class="text-center">
             No Course Added Yet!!
         </div>
     }
-</div>
+</div> -->
+
+
+<app-courses [courses]="courses" (del)="deleteCourse($event)" [isAdmin]="true"></app-courses>

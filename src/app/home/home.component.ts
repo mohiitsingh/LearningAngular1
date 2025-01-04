@@ -5,7 +5,7 @@ import { Strings } from '../enum/strings.enum';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, CoursesComponent],
+  imports: [CoursesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
