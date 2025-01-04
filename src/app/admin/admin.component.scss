@@ -1,0 +1,27 @@
+.card{
+    width: 70%;
+    margin: auto;
+    margin-top: 5vh;
+
+    .card-header{
+        font-size: 1.8rem;
+    
+    }
+
+    button{
+        width: 10rem;
+        font-size: 1.1rem;
+    }
+}
+
+.text-danger{
+    color: red;
+}
+
+
+.image_div{
+    img{
+        height: 3rem;
+        width: 3rem;
+    }
+}

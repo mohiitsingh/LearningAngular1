@@ -1,3 +1,19 @@
-<p>home works!</p>
+<section>
+  <img src="img/banner.png" alt="" />
+  <div class="main-content">
+    <h1 class="mt-2">Explore Amazing Content</h1>
+    <a href="" class="btn btn-lg btn-light mt-2">Courses</a>
+    <a href="" class="btn btn-lg btn-primary mt-2">Templates</a>
+  </div>
+</section>
 
-<a routerLink="/about">About page</a>
+<section class="courses">
+  <div class="container">
+    <h1 class="text-center">All Courses</h1>
+    <div class="row mt-5">
+        @for (course of courses; track $index) {
+            <app-courses [course]="course" ></app-courses>
+        }
+    </div>
+  </div>
+</section>
