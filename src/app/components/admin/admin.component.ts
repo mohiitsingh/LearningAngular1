@@ -1,8 +1,8 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { CoursesComponent } from '../components/courses/courses.component';
-import { Strings } from '../enum/strings.enum';
+import { CoursesComponent } from '../courses/courses.component';
+import { Strings } from '../../enum/strings.enum';
 
 @Component({
   selector: 'app-admin',

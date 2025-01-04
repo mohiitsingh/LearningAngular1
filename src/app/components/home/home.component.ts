@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CoursesComponent } from '../components/courses/courses.component';
-import { Strings } from '../enum/strings.enum';
+import { CoursesComponent } from '../courses/courses.component';
+import { Strings } from '../../enum/strings.enum';
 
 @Component({
   selector: 'app-home',
