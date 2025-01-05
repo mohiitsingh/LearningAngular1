@@ -6,5 +6,12 @@ import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'admin', component: AdminComponent}
+    {path: 'admin', component: AdminComponent},
+    {
+        path: 'courses',
+        loadComponent: () => 
+            import('./components/courses/courses.component').then(
+                (c) => c.CoursesComponent
+            )
+    }
 ];

@@ -15,18 +15,18 @@ export class AdminComponent  {
   cover!: string | null;
   cover_file: any;
   showError = false;
-  courses: any[] = [];
+  // courses: any[] = [];
 
   ngOnInit(){
-    this.getCourses();
+    // this.getCourses();
   }
 
-  getCourses(){
-    const data = localStorage.getItem(Strings.STORAGE_KEY);
-    console.log(data);
-    if(data)
-      this.courses = JSON.parse(data);
-  }
+  // getCourses(){
+  //   const data = localStorage.getItem(Strings.STORAGE_KEY);
+  //   console.log(data);
+  //   if(data)
+  //     this.courses = JSON.parse(data);
+  // }
 
   onFileSelect(event: any) {
     const file = event.target.files[0];
@@ -71,23 +71,23 @@ export class AdminComponent  {
     const formValue = form.value;
     console.log(formValue);
     
-    const data = {
-      ...formValue,
-      image: this.cover,
-      id: this.courses.length + 1
-    }
+    // const data = {
+    //   ...formValue,
+    //   image: this.cover,
+    //   id: this.courses.length + 1
+    // }
     
-    this.courses = [...this.courses, data];
-    this.setItem(this.courses);
+    // this.courses = [...this.courses, data];
+    // this.setItem(this.courses);
 
     this.clearForm(form);
 
   }
 
-  deleteCourse(course: any){
-    this.courses = this.courses.filter(course_item => course_item.id != course.id);
-    this.setItem(this.courses);
-  }
+  // deleteCourse(course: any){
+  //   this.courses = this.courses.filter(course_item => course_item.id != course.id);
+  //   this.setItem(this.courses);
+  // }
 
   setItem(data: any){
     localStorage.setItem(Strings.STORAGE_KEY,JSON.stringify(data));

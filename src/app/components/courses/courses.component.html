@@ -6,7 +6,8 @@
         <img [src]="course.image" alt="" />
 
         @if (isAdmin) {
-        <button class="btn btn-danger" (click)="deleteCourse(course)">
+        <button class="btn btn-danger" >
+        <!-- <button class="btn btn-danger" (click)="deleteCourse(course)"> -->
           <i class="bi bi-trash-fill"></i>
         </button>
         }

@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component,inject,Input  } from '@angular/core';
+import { Course } from '../../interfaces/course.interface';
+import { CourseService } from '../../services/course/course.service';
 
 @Component({
   selector: 'app-courses',
@@ -8,12 +10,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CoursesComponent {
   
-  @Input() courses: any;
+  // @Input() courses: any;
+  courses : Course[] = [];
   @Input() isAdmin = false;
-  @Output() del = new EventEmitter();
 
-  deleteCourse(course: any){
-    this.del.emit(course)
+  private courseService = inject(CourseService);
+
+  ngOnInit(){
+    this.courses = this.courseService.getCourses();
+    // this.getCourses();
   }
+
+  
 
 }
