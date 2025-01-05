@@ -1,8 +1,10 @@
 import { compileNgModule } from '@angular/compiler';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CoursesComponent } from '../courses/courses.component';
 import { Strings } from '../../enum/strings.enum';
+import { CourseService } from '../../services/course/course.service';
+import { Course } from '../../interfaces/course.interface';
 
 @Component({
   selector: 'app-admin',
@@ -16,6 +18,8 @@ export class AdminComponent  {
   cover_file: any;
   showError = false;
   // courses: any[] = [];
+
+  private courseService = inject(CourseService);
 
   ngOnInit(){
     // this.getCourses();
@@ -67,20 +71,27 @@ export class AdminComponent  {
     this.cover_file = null;
   }
 
-  saveCourse(form: NgForm){
-    const formValue = form.value;
+  async saveCourse(form: NgForm){
+    try{
+      const formValue = form.value;
     console.log(formValue);
     
-    // const data = {
-    //   ...formValue,
-    //   image: this.cover,
-    //   id: this.courses.length + 1
-    // }
+    const data: Course = {
+      ...formValue,
+      image: this.cover,
+      // id: this.courses.length + 1
+    }
+
+    await this.courseService.addCourse(data);
     
     // this.courses = [...this.courses, data];
     // this.setItem(this.courses);
 
     this.clearForm(form);
+    }catch(e){
+      console.log(e);
+    }
+    
 
   }
 
@@ -89,8 +100,6 @@ export class AdminComponent  {
   //   this.setItem(this.courses);
   // }
 
-  setItem(data: any){
-    localStorage.setItem(Strings.STORAGE_KEY,JSON.stringify(data));
-  }
+  
 
 }
